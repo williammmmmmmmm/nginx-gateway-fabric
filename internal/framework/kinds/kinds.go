@@ -59,6 +59,8 @@ const (
 	AuthenticationFilter = "AuthenticationFilter"
 	// UpstreamSettingsPolicy is the UpstreamSettingsPolicy kind.
 	UpstreamSettingsPolicy = "UpstreamSettingsPolicy"
+	// WAFPolicy is the WAFPolicy kind.
+	WAFPolicy = "WAFPolicy"
 )
 
 // MustExtractGVK is a function that extracts the GroupVersionKind (GVK) of a client.object.

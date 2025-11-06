@@ -150,6 +150,7 @@ rules:
   - upstreamsettingspolicies
   - snippetsfilters
   - authenticationfilters
+  - wafpolicies
   verbs:
   - create
   - delete
@@ -167,6 +168,7 @@ rules:
   - upstreamsettingspolicies/status
   - snippetsfilters/status
   - authenticationfilters/status
+  - wafpolicies/status
   verbs:
   - update
 - apiGroups:
