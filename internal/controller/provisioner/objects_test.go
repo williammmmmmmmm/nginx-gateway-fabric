@@ -481,7 +481,7 @@ func TestBuildNginxResourceObjects_ExposeHealthcheck(t *testing.T) {
 				},
 				Data: map[string][]byte{"tls.crt": []byte("tls")},
 			}
-			fakeClient := fake.NewFakeClient(agentTLSSecret)
+			fakeClient := createFakeClientWithScheme(agentTLSSecret)
 			provisioner := &NginxProvisioner{
 				cfg: Config{
 					GatewayPodConfig: &config.GatewayPodConfig{
