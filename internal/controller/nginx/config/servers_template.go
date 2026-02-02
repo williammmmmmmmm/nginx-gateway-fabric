@@ -5,26 +5,9 @@ js_preload_object matches from /etc/nginx/conf.d/matches.json;
 
 
 {{- range $s := .Servers -}}
-//     {{ if $s.IsDefaultSSL -}}
-// server {
-//         {{- if or ($.IPFamily.IPv4) ($s.IsSocket) }}
-//     listen {{ $s.Listen }} ssl default_server{{ $.RewriteClientIP.ProxyProtocol }};
-//         {{- end }}
-//         {{- if and ($.IPFamily.IPv6) (not $s.IsSocket) }}
-//     listen [::]:{{ $s.Listen }} ssl default_server{{ $.RewriteClientIP.ProxyProtocol }};
-//         {{- end }}
-//     ssl_reject_handshake on;
-//         {{- range $address := $.RewriteClientIP.RealIPFrom }}
-//     set_real_ip_from {{ $address }};
-//         {{- end}}
-//         {{- if $.RewriteClientIP.RealIPHeader}}
-//     real_ip_header {{ $.RewriteClientIP.RealIPHeader }};
-//         {{- end}}
-//         {{- if $.RewriteClientIP.Recursive}}
-//     real_ip_recursive on;
-//         {{- end }}
-// }
-//     {{- else if $s.IsDefaultHTTP }}
+    {{ if $s.IsDefaultSSL -}}
+		{{/* 这里留空，或者只写个注释，就会跳过默认的 SSL Server 块生成 */}}
+    {{- else if $s.IsDefaultHTTP }}
 server {
         {{- if $.IPFamily.IPv4 }}
     listen {{ $s.Listen }} default_server{{ $.RewriteClientIP.ProxyProtocol }};
